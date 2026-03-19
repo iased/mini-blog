@@ -1,0 +1,11 @@
+.posts-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.loading, .error {
+  text-align: center;
+  margin: 1rem 0;
+  color: #64748b;
+}

@@ -1,0 +1,17 @@
+<div class="post-card">
+  <div class="post-row">
+    <img [src]="getAvatarUrl(post.id)" alt="avatar" class="avatar" />
+
+    <div class="post-content">
+      <div class="post-meta">
+        <span class="post-author">By Anonymous </span>
+        <span class="separator">•</span>
+        <span class="post-time">{{ post.created_at | timeAgo }}</span>
+      </div>
+
+      <h2 class="post-title">{{ post.title }}</h2>
+
+      <p class="post-body">{{ post.message }}</p>
+    </div>
+  </div>
+</div>
