@@ -11,6 +11,12 @@ body {
   line-height: 1.6;
 }
 
+app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 .layout {
   min-height: 100vh;
   display: flex;
