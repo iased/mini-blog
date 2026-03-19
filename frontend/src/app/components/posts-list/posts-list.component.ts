@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PostCardComponent } from '../post-card/post-card.component';
 import { Post } from '../../models/post.model';
 import { PostsService } from '../../services/posts.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-posts-list',
@@ -14,8 +15,11 @@ export class PostsListComponent implements OnInit {
   posts: Post[] = [];
   loading = true;
   error = '';
+  isLoggedIn = false;
 
-  constructor(private postsService: PostsService) {}
+  constructor(private postsService: PostsService, private authService: AuthService) {
+    this.isLoggedIn = this.authService.isLoggedIn();
+  }
 
   ngOnInit(): void {
     this.postsService.getPosts().subscribe({
