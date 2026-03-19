@@ -1,8 +1,20 @@
 <header class="app-header">
-    <div class="container header-inner">
-        <a routerLink="/posts" class="logo">
-            <img src="assets/blog.png" alt="Blog logo" class="logo-icon" />
-            <span class="logo-text">Blog</span>
-        </a>
-    </div>
+        <div class="header-inner">
+            <a routerLink="/posts" class="logo">
+                <img src="assets/blog.png" alt="Blog logo" class="logo-icon" />
+                <span class="logo-text">Blog</span>
+            </a>
+
+            <div class="auth-section">
+                <ng-container *ngIf="isLoggedIn(); else guest">
+                    <span class="welcome">Hello, {{ user?.name }}</span> |
+                    <button class="link-btn" (click)="logout()">Logout</button>
+                </ng-container>
+
+                <ng-template #guest>
+                    <a routerLink="/login" class="link-btn">Login</a> |
+                    <a routerLink="/register" class="link-btn">Register</a>
+                </ng-template>
+            </div>
+        </div>
 </header>
