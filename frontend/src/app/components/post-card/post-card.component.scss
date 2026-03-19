@@ -1,0 +1,60 @@
+.post-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto; 
+
+  .post-row {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .post-content {
+    display: flex;
+    flex-direction: column;
+
+    .post-meta {
+      font-size: 0.85rem;
+      color: #555;
+
+      .post-author {
+        font-weight: 500;
+        color: #222;
+      }
+
+      .separator {
+        color: #bbbbbb;
+        margin: 0 0.25rem;
+      }
+
+      .post-time {
+        font-weight: 400;
+        color: #888888;
+        font-style: italic;
+      }
+    }
+
+    .post-title {
+      font-size: 1.2rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: bold;
+    }
+
+    .post-body {
+      font-size: 1rem;
+      color: #333;
+      margin: 0;
+    }
+  }
+}
