@@ -4,10 +4,11 @@ import { PostCardComponent } from '../post-card/post-card.component';
 import { Post } from '../../models/post.model';
 import { PostsService } from '../../services/posts.service';
 import { AuthService } from '../../services/auth.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-posts-list',
-  imports: [CommonModule, PostCardComponent],
+  imports: [CommonModule, PostCardComponent, RouterLink],
   templateUrl: './posts-list.component.html',
   styleUrl: './posts-list.component.scss'
 })

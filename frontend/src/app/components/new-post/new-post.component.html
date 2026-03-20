@@ -1,0 +1,44 @@
+<div class="new-post-page">
+  <div class="new-post-card">
+    <h2 class="new-post-title">Create New Post</h2>
+    <p class="new-post-subtitle">Let your friends know what you've been up to!</p>
+
+    <form (ngSubmit)="createPost()" class="new-post-form">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          id="title"
+          type="text"
+          [(ngModel)]="newPost.title"
+          name="title"
+          placeholder="Enter post title"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          [(ngModel)]="newPost.message"
+          name="message"
+          placeholder="Enter post message"
+          required
+        ></textarea>
+      </div>
+
+      <p class="error-message" *ngIf="error">{{ error }}</p>
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="cancel()" [disabled]="loading">
+            Cancel
+        </button>
+
+        <button type="submit" class="btn-primary" [disabled]="loading">
+            <span *ngIf="loading" class="spinner"></span>
+            <span *ngIf="!loading">Create Post</span>
+        </button>
+      </div>      
+    </form>
+  </div>
+</div>
