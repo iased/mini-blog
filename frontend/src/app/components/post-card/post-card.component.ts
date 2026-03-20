@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TimeAgoPipe } from '../../pipes/time-ago.pipe';
 import { Post } from '../../models/post.model';
@@ -12,7 +12,8 @@ import { Post } from '../../models/post.model';
 export class PostCardComponent {
   @Input() post!: Post;
 
-  getAvatarUrl(id: number): string {
-    return `https://api.dicebear.com/7.x/thumbs/svg?seed=${id}&backgroundType=gradientLinear`;
+  getAvatarUrl(): string {
+    const seed = this.post.user_id;
+    return `https://api.dicebear.com/7.x/thumbs/svg?seed=${seed}&backgroundType=gradientLinear`;
   }
 }

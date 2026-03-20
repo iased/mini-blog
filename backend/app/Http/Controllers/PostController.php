@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        return Post::all();
+        return Post::with('user')->latest()->get();
     }
 
     public function store(Request $request)
@@ -18,12 +18,19 @@ class PostController extends Controller
             'title' => 'required',
             'message' => 'required'
         ]);
-        return Post::create($request->all());
+
+        $post = Post::create([
+            'title'   => $request->title,
+            'message' => $request->message,
+            'user_id' => auth()->id(),
+        ]);
+
+        return response()->json($post, 201);
     }
 
     public function show(Post $post)
     {
-        return $post;
+        return $post->load('user');
     }
 
     public function update(Request $request, Post $post)
@@ -33,7 +40,7 @@ class PostController extends Controller
             'message' => 'required'
         ]);
         $post->update($request->all());
-        return $post;
+        return $post->load('user');
     }
 
     public function destroy(Post $post)

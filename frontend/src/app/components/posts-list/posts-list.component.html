@@ -6,7 +6,7 @@
     <h1 class="feed-title">Latest Posts</h1>
     <p class="feed-subtitle">Stories, thoughts and ideas from our community</p>
   </div>
-  <a *ngIf="isLoggedIn" routerLink="/posts/create" class="btn-new-post">+ New Post</a>
+  <a *ngIf="isLoggedIn" routerLink="/posts/new-post" class="btn-new-post">+ New Post</a>
   <span *ngIf="!isLoggedIn" class="btn-new-post disabled" title="Login to create a post">+ New Post</span>
 </div>
 
