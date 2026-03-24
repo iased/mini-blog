@@ -7,7 +7,16 @@
 
             <div class="auth-section">
                 <ng-container *ngIf="isLoggedIn(); else guest">
-                    <span class="welcome">Hello, {{ user?.name }}</span> |
+                    <span class="welcome">Hello, {{ user?.name }}</span> 
+                    <span class="separator">|</span>
+                    <a *ngIf="isOnMyPosts(); else myPostsLink"
+                        routerLink="/posts"
+                        class="link-btn"
+                        >Feed</a>
+                    <ng-template #myPostsLink>
+                        <a routerLink="/my-posts" class="link-btn">My Posts</a>
+                    </ng-template>
+                    <span class="separator">|</span>
                     <button class="link-btn" (click)="logout()">Logout</button>
                 </ng-container>
 

@@ -25,4 +25,8 @@ export class HeaderComponent {
       this.router.navigate(['/login']);
     });
   }
+
+    isOnMyPosts(): boolean {
+    return this.router.url === '/my-posts';
+  }
 }

@@ -44,33 +44,40 @@
   font-size: 1rem;
 }
 
-.welcome {
-  color: #1e293b;
-  font-weight: 500;
-  font-size: 1.2rem;
-}
-
-.link-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: #475569;
-  font-family: inherit;
-
-  &:hover {
+.auth-section {
+  .welcome {
     color: #1e293b;
+    font-weight: 500;
+    font-size: 1.3rem;
   }
-}
 
-button.link-btn {
-  color: #b30000;
+  .link-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #44b0b2;
+    font-family: inherit;
 
-  &:hover {
-    color: #990000;
+    &:hover {
+      color: #3c9c9e;
+    }
+  }
+
+  .separator {
+    color: #ccc;
+    user-select: none;
+  }
+
+  button.link-btn {
+    color: #b30000;
+
+    &:hover {
+      color: #990000;
+    }
   }
 }
 

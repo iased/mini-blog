@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TimeAgoPipe } from '../../pipes/time-ago.pipe';
 import { Post } from '../../models/post.model';
@@ -11,6 +11,10 @@ import { Post } from '../../models/post.model';
 })
 export class PostCardComponent {
   @Input() post!: Post;
+  @Input() showActions = false;
+
+  @Output() editPost = new EventEmitter<Post>();
+  @Output() deletePost = new EventEmitter<Post>();
 
   getAvatarUrl(): string {
     const seed = this.post.user_id;

@@ -1,0 +1,21 @@
+<div *ngIf="loading" class="loading">Loading posts...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div class="feed-header" *ngIf="!loading && !error">
+  <div class="feed-header-left">
+    <h1 class="feed-title">My Posts</h1>
+    <p class="feed-subtitle">Your personal collection of posts. Manage and edit your content at any time.</p>
+  </div>
+  <a *ngIf="isLoggedIn" routerLink="/posts/new-post" class="btn-new-post">+ New Post</a>
+  <span *ngIf="!isLoggedIn" class="btn-new-post disabled" title="Login to create a post">+ New Post</span>
+</div>
+
+<div class="posts-list" *ngIf="!loading && !error">
+  <app-post-card
+    *ngFor="let post of posts"
+    [post]="post"
+    [showActions]="true"
+    (editPost)="onEdit($event)"
+    (deletePost)="onDelete($event)">
+  </app-post-card>
+</div>
