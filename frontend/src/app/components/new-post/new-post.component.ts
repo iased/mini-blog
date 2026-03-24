@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Post } from '../../models/post.model';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { CommonModule, Location } from '@angular/common';
 import { PostsService } from '../../services/posts.service';
 
 @Component({
@@ -20,7 +19,7 @@ export class NewPostComponent {
   loading = false;
   error = '';
 
-  constructor(private postsService: PostsService, private router: Router) {}
+  constructor(private postsService: PostsService, private location: Location) {}
 
   createPost() {
     this.loading = true;
@@ -29,7 +28,7 @@ export class NewPostComponent {
     this.postsService.createPost(this.newPost).subscribe({
       next: () => {
         this.loading = false;
-        this.router.navigate(['/posts']);
+        this.location.back();
       },
       error: (err) => {
         this.loading = false;
@@ -39,6 +38,6 @@ export class NewPostComponent {
   }
 
   cancel() {
-    this.router.navigate(['/posts']);
+    this.location.back();
   }
 }

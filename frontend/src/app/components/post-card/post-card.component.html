@@ -3,10 +3,17 @@
     <img [src]="getAvatarUrl()" alt="avatar" class="avatar" />
 
     <div class="post-content">
-      <div class="post-meta">
-        <span class="post-author">By {{ post.user?.name || 'Anonymous' }}</span>
-        <span class="separator">•</span>
-        <span class="post-time">{{ post.created_at | timeAgo }}</span>
+      <div class="post-top">
+        <div class="post-meta">
+          <span class="post-author">By {{ post.user?.name || 'Anonymous' }}</span>
+          <span class="separator">•</span>
+          <span class="post-time">{{ post.created_at | timeAgo }}</span>
+        </div>
+
+        <div class="post-actions" *ngIf="showActions">
+          <button class="btn-edit" (click)="editPost.emit(post)">🖉</button>
+          <button class="btn-delete" (click)="deletePost.emit(post)">🗑️</button>
+        </div>
       </div>
 
       <h2 class="post-title">{{ post.title }}</h2>

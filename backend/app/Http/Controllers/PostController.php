@@ -48,4 +48,12 @@ class PostController extends Controller
         $post->delete();
         return response()->json(['message' => 'Post deleted']);
     }
+
+    public function myPosts(Request $request)
+    {
+        return Post::with('user')
+            ->where('user_id', $request->user()->id)
+            ->latest()
+            ->get();
+    }
 }

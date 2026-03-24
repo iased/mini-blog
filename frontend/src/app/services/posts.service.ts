@@ -23,4 +23,12 @@ export class PostsService {
   createPost(post: Post): Observable<Post> {
     return this.http.post<Post>(`${this.apiUrl}/posts`, post);
   }
+
+  getMyPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.apiUrl}/my-posts`);
+  }
+
+  deletePost(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/posts/${id}`);
+  }
 }
