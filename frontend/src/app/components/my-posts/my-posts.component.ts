@@ -4,7 +4,7 @@ import { PostsService } from '../../services/posts.service';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { PostCardComponent } from '../post-card/post-card.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-my-posts',
@@ -18,7 +18,7 @@ export class MyPostsComponent implements OnInit {
   error = '';
   isLoggedIn = false;
 
-  constructor(private postsService: PostsService, private authService: AuthService) {
+  constructor(private postsService: PostsService, private authService: AuthService, private router: Router) {
     this.isLoggedIn = this.authService.isLoggedIn();
   }
     
@@ -30,7 +30,7 @@ export class MyPostsComponent implements OnInit {
   }
 
   onEdit(post: Post) {
-    console.log('edit', post);
+    this.router.navigate(['/my-posts', post.id]);
   }
 
   onDelete(post: Post) {

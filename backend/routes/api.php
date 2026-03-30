@@ -13,6 +13,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/posts', [PostController::class, 'store']);
     Route::get('/my-posts', [PostController::class, 'myPosts']);
+    Route::get('/my-posts/{post}', [PostController::class, 'show']);
+    Route::put('/my-posts/{post}', [PostController::class, 'update']);
     Route::delete('/posts/{post}', [PostController::class, 'destroy']);
     
     Route::post('/logout', [AuthController::class, 'logout']);

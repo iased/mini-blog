@@ -30,7 +30,11 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return $post->load('user');
+        if ($post->user_id !== auth()->id()) {
+            return response()->json(['message' => 'Forbidden'], 403);
+        }
+
+        return response()->json($post);
     }
 
     public function update(Request $request, Post $post)

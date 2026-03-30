@@ -4,11 +4,13 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { MyPostsComponent } from './components/my-posts/my-posts.component';
+import { EditPostComponent } from './components/edit-post/edit-post.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/posts', pathMatch: 'full' },
     { path: 'posts', component: PostsListComponent },
     { path: 'my-posts', component: MyPostsComponent },
+    { path: 'my-posts/:id', component: EditPostComponent },
     { path: 'posts/new-post', component: NewPostComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent }
