@@ -17,7 +17,7 @@ export class PostsService {
   }
 
   getPost(id: number): Observable<Post> {
-    return this.http.get<Post>(`${this.apiUrl}/posts/${id}`);
+    return this.http.get<Post>(`${this.apiUrl}/my-posts/${id}`);
   }
   
   createPost(post: Post): Observable<Post> {
@@ -26,6 +26,10 @@ export class PostsService {
 
   getMyPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.apiUrl}/my-posts`);
+  }
+
+  updatePost(id: number, post: Post): Observable<Post> {
+    return this.http.put<Post>(`${this.apiUrl}/my-posts/${id}`, post);
   }
 
   deletePost(id: number): Observable<void> {
